@@ -175,23 +175,23 @@ BOARD
 
 ├── btn[4:0] → sparse_matrix_multiply
 
-│   ├── btn[0] → reset
+   ├── btn[0] → reset
 
-│   ├── btn[1] → store/start (context-dependent)
+   ├── btn[1] → store/start (context-dependent)
 
-│   ├── btn[2] → toggle matrix A/B
+   ├── btn[2] → toggle matrix A/B
 
-│   ├── btn[3] → store precision
+   ├── btn[3] → store precision
 
-│   └── btn[4] → next result
+   └── btn[4] → next result
 
 ├── sw[7:0] → sparse_matrix_multiply
 
-│   ├── sw[3:0] → data value
+   ├── sw[3:0] → data value
 
-│   ├── sw[5:4] → address
+   ├── sw[5:4] → address
 
-│   └── sw[7:6] → precision mode
+   └── sw[7:6] → precision mode
 
 └── led[7:0] ← sparse_matrix_multiply
 
@@ -199,15 +199,15 @@ sparse_matrix_multiply
 
 ├── switch_input_controller
 
-│   ├── Inputs: btn, sw
+   ├── Inputs: btn, sw
 
-│   └── Outputs: load_data, load_addr, load_en, matrix_sel, precision_reg
+   └── Outputs: load_data, load_addr, load_en, matrix_sel, precision_reg
 
 ├── result_display_cycler
 
-│   ├── Inputs: btn[4], current_result
+   ├── Inputs: btn[4], current_result
 
-│   └── Outputs: display_data, result_idx
+   └── Outputs: display_data, result_idx
 
 └── sparse_matrix_core_with_io ← CORE WRAPPER
 
