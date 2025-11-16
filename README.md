@@ -168,43 +168,81 @@ This is the core computation engine with all other modules necessary for computa
 
 
 
+
 BOARD
+
 ├── CLK100MHZ → clk (all modules)
+
 ├── btn[4:0] → sparse_matrix_multiply
+
 │   ├── btn[0] → reset
+
 │   ├── btn[1] → store/start (context-dependent)
+
 │   ├── btn[2] → toggle matrix A/B
+
 │   ├── btn[3] → store precision
+
 │   └── btn[4] → next result
+
 ├── sw[7:0] → sparse_matrix_multiply
+
 │   ├── sw[3:0] → data value
+
 │   ├── sw[5:4] → address
+
 │   └── sw[7:6] → precision mode
+
 └── led[7:0] ← sparse_matrix_multiply
+
 sparse_matrix_multiply
+
 ├── switch_input_controller
+
 │   ├── Inputs: btn, sw
+
 │   └── Outputs: load_data, load_addr, load_en, matrix_sel, precision_reg
+
 ├── result_display_cycler
+
 │   ├── Inputs: btn[4], current_result
+
 │   └── Outputs: display_data, result_idx
+
 └── sparse_matrix_core_with_io ← CORE WRAPPER
+
     ├── A_bram_ext (stores matrix A)
+    
     ├── B_bram_ext (stores matrix B)
+    
     ├── C_bram_ext (stores results)
+    
     ├── precision_reg_ext
+    
     └── original_sparse_matrix_core ← COMPUTATION ENGINE
+    
         ├── tile_sparsity
+        
         ├── multiplier_selector_fsm
+        
         ├── dsp_multiplier
+        
         ├── booth_multiplier
+        
         ├── bitserial_multiplier
+        
         ├── product_mux_fixed
+        
         └── top_control_fsm ← THE BRAIN
+        
             ├── Controls: read_addr_A/B, write_addr_C
+            
             ├── Triggers: detect_start, start_select, start_mult
+            
             ├── Monitors: detect_done, done_mult
+            
             └── Coordinates: All 15 FSM states
+
 
 # 4.ZEDBOARD PIN MAPPINGS (USING MASTER FILE FROM DIGILENT):
 
