@@ -3,7 +3,7 @@ Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanc
 | Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
 | Date         : Tue Nov  4 09:52:47 2025
 | Host         : DESKTOP-70FUODV running 64-bit major release  (build 9200)
-| Command      : report_utilization -file C:/Users/Amaiya/final_project/FINAL_REPORTS/utilization_report.txt -name utilization_1
+| Command      : report_utilization -file C:/Users/Ashna/final_project/FINAL_REPORTS/utilization_report.txt -name utilization_1
 | Design       : sparse_matrix_multiply
 | Device       : xc7z020clg484-1
 | Speed File   : -1
